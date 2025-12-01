@@ -1,0 +1,26 @@
+name: CI TDD
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v3
+
+      - name: Installation Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Installation des outils
+        run: |
+          pip install pytest pytest-cov
+          # pip install -r requirements.txt (si tu en avais un)
+
+      - name: Lancement des tests
+        run: |
+          # On ajoute le dossier courant au path pour que src soit trouvé
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          python -m pytest --cov=src
