@@ -11,7 +11,7 @@ class ShoppingCart:
         # Règle métier : Si supérieur STRICTEMENT à 100
         if total > 100:
             # 10% de réduction au final, on me l'a bien confirmé !
-            return total * 0.10
+            return total * (1 - 0.10)
             
         return total
     
