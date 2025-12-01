@@ -1,0 +1,26 @@
+# pyproject.toml
+
+# 1. Définition du projet
+[project]
+name = "mon_projet_ecommerce"
+version = "0.1.0"
+description = "Un exemple de TDD en Python"
+dependencies = [
+    "requests",
+]
+
+# 2. Configuration de Black (Formatage)
+[tool.black]
+line-length = 88
+
+# 3. Configuration de isort (Tri des imports)
+[tool.isort]
+profile = "black"
+
+# 4. Configuration de Pytest (Le plus important pour toi)
+[tool.pytest.ini_options]
+# Ajoute le dossier courant au path pour éviter les erreurs "Module not found"
+pythonpath = ["src"]
+# Options par défaut (ex: afficher les variables locales si ça plante)
+addopts = "-v --showlocals"
+testpaths = ["tests"]
