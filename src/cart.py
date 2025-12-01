@@ -8,8 +8,10 @@ class ShoppingCart:
     def calculate_total(self):
         total = sum(self.items)
         
-        # Règle métier : Si supérieur STRICTEMENT à 100, on applique 10%
+        # Règle métier : Si supérieur STRICTEMENT à 100
         if total > 100:
-            return total * 0.90
+            # 50% de réduction [au lieu des 10%]
+            return total * 0.50
             
         return total
+    
